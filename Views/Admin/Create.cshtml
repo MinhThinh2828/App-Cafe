@@ -1,0 +1,27 @@
+﻿@model App_Cafe.Models.MenuItem
+
+<h2>Thêm món mới</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+    </div>
+    <div>
+        <label asp-for="Price"></label>
+        <input asp-for="Price" />
+    </div>
+    <div>
+        <label asp-for="Category"></label>
+        <input asp-for="Category" />
+    </div>
+    <div>
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" />
+    </div>
+    <button type="submit">Thêm</button>
+</form>

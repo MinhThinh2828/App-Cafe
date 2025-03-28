@@ -1,0 +1,49 @@
+﻿@model IEnumerable<App_Cafe.Models.MenuItem>
+
+<div style="text-align: center;">
+    <h1>App Cafe</h1>
+    <p>Trang chủ</p>
+</div>
+
+<div class="welcome-section">
+    ☕ Chào mừng đến với App Cafe ☕
+</div>
+
+<div style="text-align: center; margin-top: 20px;">
+    <img src="/images/anh-cafe.jpg" alt="App Cafe" class="main-image" />
+</div>
+
+<div class="description-section">
+    <p>
+        Thưởng thức những ly cà phê ngọt ngào với hương vị đậm đà, thơm lừng. Chúng tôi tự hào mang đến những loại cà phê chất lượng nhất từ các vùng trồng cà phê nổi tiếng.
+    </p>
+</div>
+
+<h2 style="text-align: center; margin-top: 30px;">Danh sách sản phẩm</h2>
+
+<form asp-action="Index" method="get" style="text-align: center; margin-bottom: 20px;">
+    <div class="input-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Tìm kiếm sản phẩm..." />
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+</form>
+
+<div class="row" style="margin-top: 30px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                {
+                    <img src="@item.ImageUrl" class="card-img-top" alt="@item.Name" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.Description</p>
+                    <p class="card-text"><strong>@item.Price VNĐ</strong></p>
+                    <p class="card-text"><strong>Loại:</strong> @item.Category</p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
